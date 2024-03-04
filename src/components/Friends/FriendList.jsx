@@ -1,18 +1,16 @@
-import React from 'react';
+import { FriendListItem } from './FriendListItem';
 
-const generateRandomColor = () => {
-  return `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
-    Math.random() * 256
-  )}, ${Math.floor(Math.random() * 256)})`;
-  };
-
-
-export const FriendList = ({avatar, name, isOnline}) => {
+export const FriendList = ({ friends }) => {
   return (
-    <li class="item">
-      <span class="status"></span>
-      <img class="avatar" src="" alt="User avatar" width="48" />
-      <p class="name"></p>
-    </li>
-  )
+    <ul style={{listStyle: 'none'}}>
+      {friends.map(({ avatar, name, isOnline, id }) => (
+        <FriendListItem
+          key={id}
+          avatar={avatar}
+          name={name}
+          isOnline={isOnline}
+        />
+      ))}
+    </ul>
+  );
 };

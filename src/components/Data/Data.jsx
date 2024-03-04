@@ -9,13 +9,28 @@ const generateRandomColor = () => {
 export const Data = ({title, data}) => {
   return (
     <section class="statistics">
-      {title && <h2 class="title">Upload stats</h2>}
+      {title && <h2 class="title">{title}</h2>}
   
-      <ul class="stat-list">
+      <ul class="stat-list" 
+        style={{
+          listStyle: 'none',
+          display: 'flex',
+          flexDirection:'row',
+        }}
+      >
+       
         {data.map(stats => (
           <li 
             class="item" 
-            style={{backgroundColor: generateRandomColor()}}
+            style={{
+              backgroundColor: generateRandomColor(), 
+              width: '150px',
+              height: '100px',
+              display: 'flex',
+              flexDirection:'column',
+              alignItems: 'center',
+              textAlign: 'center'
+            }}
             key={stats.id}  
           >
           <span class="label">{stats.label}</span>
